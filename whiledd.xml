@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates"
+				version="1.0.0">
+	<template name="whiledd" invoke="manual">
+        <point name="DataSet">
+            <script language="Delphi">
+                InvokeCodeCompletion;
+            </script>
+             <text>DataSet</text>
+             <hint>DataSet</hint>
+        </point>
+		<description>
+         while no Dataset (com disablecontrols)
+		</description>
+		<author>
+        Tailan R. Bonassi
+		</author>
+		<code language="Delphi" context="methodbody" delimiter="|">
+<![CDATA[|DataSet|.DisableControls();
+try
+|*||DataSet|.First();
+|*|while (not |DataSet|.Eof) do
+|*|begin
+|*||*||end|
+|*||*||DataSet|.Next();
+|*|end;
+finally
+|*||DataSet|.EnableControls();
+end;
+]]>
+		</code>
+	</template>
+</codetemplate>

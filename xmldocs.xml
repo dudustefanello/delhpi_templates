@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates"
+				version="1.0.0">
+	<template name="xmldocs" invoke="manual">
+        <point name="Descricao">
+            <script language="Delphi">InvokeCodeCompletion;</script>
+            <text>Descricao</text>
+            <hint>Descrição da Função</hint>
+        </point>
+
+        <point name="Param">
+            <script language="Delphi">InvokeCodeCompletion;</script>
+            <text>Param</text>
+            <hint>Nome do Parametro</hint>
+        </point>
+
+        <point name="ParamDesc">
+            <script language="Delphi">InvokeCodeCompletion;</script>
+            <text>ParamDesc</text>
+            <hint>Descrição do Parametro</hint>
+        </point>
+
+        <point name="Return">
+            <script language="Delphi">InvokeCodeCompletion;</script>
+            <text>Return</text>
+            <hint>Descrição do Retorno</hint>
+        </point>
+
+        <point name="EException">
+            <script language="Delphi">InvokeCodeCompletion;</script>
+            <text>EException</text>
+            <hint>Tipo da Excessão Lançada</hint>
+        </point>
+
+		<description>
+			Creates an XMLDoc &lt;summary&gt; tag
+		</description>
+		<author>
+			Eduardo Stefanello
+		</author>
+		<code language="Delphi" delimiter="|"><![CDATA[
+/// <summary>
+/// |*||Descricao|
+/// </summary>
+/// <param name="|Param|">|ParamDesc|</param>
+/// <returns>|Return|</returns>
+/// <exception>|EException|</exception>
+]]>
+		</code>
+	</template>
+</codetemplate>

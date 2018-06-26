@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates" version="1.0.0">
+	<template name="whiledbook" invoke="manual">
+		<point name="DataSet">
+      <script language="Delphi">
+				InvokeCodeCompletion;
+			</script>
+      <text>
+				DataSet
+			</text>
+      <hint>
+				DataSet
+			</hint>
+    </point>
+    <point name="BookMark">
+	    <script language="Delphi">
+				InvokeCodeCompletion;
+			</script>
+	    <text>
+				BookMark
+		 	</text>
+	    <hint>
+				BookMark
+			</hint>
+    </point>
+		<description>
+    	While no Dataset (com disablecontrols e bookmark)
+		</description>
+		<author>
+    	Eduardo Stefanello
+		</author>
+		<script language="Delphi" onenter="false" onleave="true">
+			DeclareVariable(|DataSet|, TClientDataset);
+			DeclareVariable(|BookMark|, TBookmark);
+		</script>
+		<code language="Delphi" context="methodbody" delimiter="|">
+<![CDATA[|DataSet|.DisableControls;
+try
+|*||BookMark| := |DataSet|.GetBookmark;
+|*||DataSet|.First;
+|*|while not |DataSet|.Eof do
+|*|begin
+|*||*||end|
+|*||*||DataSet|.Next;
+|*|end;
+finally
+|*||DataSet|.EnableControls;
+|*|if |DataSet|.BookmarkValid(|BookMark|) then
+|*|  |DataSet|.GotoBookmark(|BookMark|);
+|*||DataSet|.FreeBookmark(|BookMark|);
+end;
+]]>
+		</code>
+	</template>
+</codetemplate>

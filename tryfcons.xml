@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<codetemplate	xmlns="http://schemas.borland.com/Delphi/2005/codetemplates"
+				version="1.0.0">
+	<template name="tryfcons" invoke="manual">
+        <point name="Consulta">
+            <script language="Delphi">
+                InvokeCodeCompletion;
+            </script>
+             <text>Consulta</text>
+             <hint>variavel TConsultaSQL</hint>
+        </point>
+        <point name="Conexao">
+            <script language="Delphi">
+                InvokeCodeCompletion;
+            </script>
+             <text>Conexao</text>
+             <hint>variavel TConexaoSQL</hint>
+        </point>
+        <point name="Transacao">
+            <script language="Delphi">
+                InvokeCodeCompletion;
+            </script>
+             <text>Transacao</text>
+             <hint>variavel TTransacaoSQL</hint>
+        </point>
+        <point name="SQL">
+            <script language="Delphi">
+                InvokeCodeCompletion;
+            </script>
+             <text>SQL</text>
+             <hint>SQL</hint>
+        </point>
+        <point name="parametro">
+            <script language="Delphi">
+                InvokeCodeCompletion;
+            </script>
+             <text>parametro</text>
+             <hint>parametro</hint>
+        </point>
+        <point name="variavel">
+            <script language="Delphi">
+                InvokeCodeCompletion;
+            </script>
+             <text>variavel</text>
+             <hint>variavel</hint>
+        </point>
+
+		<description>
+         Try e finally para consultas do flextotal para chamar o método fgetconsulta e destroi consulta
+		</description>
+		<author>
+        Tailan R. Bonassi
+		</author>
+        <script language="Delphi" onenter="false" onleave="true">
+			DeclareVariable(|Consulta|);
+		</script>
+		<code language="Delphi" context="methodbody" delimiter="|">
+<![CDATA[|Consulta| := TConsultaSQL.fGetConsulta(|Conexao|, |Transacao|, |SQL|);
+try
+|*||Consulta|.ParamByName(||'|parametro|'||).AsLargeInt := |variavel||end|
+|*||Consulta|.Open;|end|
+finally
+|*|DestroiConsulta(|Consulta|);
+end;
+]]>
+		</code>
+	</template>
+</codetemplate>
